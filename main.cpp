@@ -40,7 +40,14 @@ int main() {
 
 				break;
 			case 4:
-
+				if (n == 20) {		// n的其他情况前面已考虑，此处考虑数组上限问题 
+					printf("项目数不能超过20个，请重新进行系统功能选项选择!\n");
+				}
+				else {
+					printf("请输入项目信息：");
+					AppendInv(inv, _n_);
+					printf("更新成功");
+				}
 				break;
 			case 0:
 				printf("\n\t\t\t你确定退出游戏吗？（确定请按 ‘1’ , 取消请按其他数字）:");

@@ -10,3 +10,14 @@ void OutputInv(struct INVEST inv[], int* _n_) {
 		printf("\t| -------------------------------------------------------------------------------------------- |\n");
 	}
 }
+void AppendInv(struct INVEST inv[], int* _n_)// 在投资表末尾添加一个记录
+{
+	//录入名字
+	printf("\n输入新项目名字（其他数据将自动生成）：");
+	char tname[MAX_NAME_LENTH] = {};
+	scanf_s("%s", tname);
+	inv[*_n_].num = (*_n_ + 1000) * (*_n_ + 1) - 52; strcpy_s(inv[*_n_].name,tname);inv[*_n_].ownprice = 0;
+	inv[*_n_].lastprice = 1; inv[*_n_].nowprice = 300; inv[*_n_].ownnum = 0; inv[*_n_].yield = 0;
+	*_n_ += 1;
+	return;
+}

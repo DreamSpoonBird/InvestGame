@@ -8,6 +8,17 @@ struct INVEST {
 	double yield; // 收益率,小数点后两位！！！ 
 }inv[20];//介个是一个类型为 INVEST 的一维数组 inv,最大为20 
 //获取随机数，实现波动，可以外套循环实现多次波动
+
+void Init(struct INVEST inv[], int& n) {
+	n = 6;
+	char temp[6][MAX_NAME_LENTH] = { "喵喵科技", "熊猫集团", "华佗药业", "袋鼠健身", "春蚕纺织", "猿猴娱乐" };
+	for (int i = 0; i < 6; i++) {
+		inv[i].num = (i + 1000) * (i + 1) - 52; strcpy_s(inv[i].name, temp[i]);
+		inv[i].ownprice = 0; inv[i].lastprice = 1; inv[i].nowprice = 300; inv[i].ownnum = 0; inv[i].yield = 0;
+	}
+	return;
+}
+
 void getNum(struct INVEST inv[], int* _n_, int daysnum) {
 	srand((unsigned)time(NULL));//保证每次生成的随机数不一样
 	int x=0;//概率
@@ -51,12 +62,3 @@ void getNum(struct INVEST inv[], int* _n_, int daysnum) {
 	return;
 }
 
-void Init(struct INVEST inv[], int& n) {
-	n = 6;
-	char temp[6][MAX_NAME_LENTH] = { "喵喵科技", "熊猫集团", "华佗药业", "袋鼠健身", "春蚕纺织", "猿猴娱乐" };
-	for (int i = 0; i < 6; i++) {
-		inv[i].num = (i + 1000) * (i + 1) - 52; strcpy_s(inv[i].name, temp[i]);
-		inv[i].ownprice = 0; inv[i].lastprice = 1; inv[i].nowprice = 300; inv[i].ownnum = 0; inv[i].yield = 0;
-	}
-	return;
-}
